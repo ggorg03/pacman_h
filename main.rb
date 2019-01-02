@@ -1,1 +1,3 @@
-puts "It will be a game"
+require_relative "ui"
+
+welcome
