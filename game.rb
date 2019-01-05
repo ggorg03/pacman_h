@@ -4,8 +4,8 @@ def game
     map = load_map
 
     while true
+        puts map
         h_position = found_hero map
-        puts h_position
-        break
+        move_hero map, h_position
     end
 end
