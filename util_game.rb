@@ -14,9 +14,12 @@ def found_hero map
         end
     end
 end
+def colision (x_pos, y_pos, map, thing)
+   map[y_pos][x_pos] == thing
+end
 
-def colision (x_pos,y_pos,map)
-   map[y_pos][x_pos] == "x"
+def colision_wall (x_pos,y_pos,map)
+    colision x_pos, y_pos, map, "x"
 end
 
 def clean_position (x_pos, y_pos, map)
@@ -30,25 +33,25 @@ end
 def move_hero (map, hero_position)
     x_pos, y_pos = hero_position
     clean_position x_pos, y_pos, map
+    puts "< h vj ^k >l"
     loop do
-        puts "< h vj ^k >l"
         direction = gets.strip.upcase
         
         case direction
         when "H"
-            next if colision x_pos -1, y_pos, map
+            next if colision_wall x_pos -1, y_pos, map
             x_pos -= 1
             break
         when "L"
-            next if colision x_pos + 1, y_pos, map
+            next if colision_wall x_pos + 1, y_pos, map
             x_pos += 1
             break
         when "J"
-            next if colision x_pos, y_pos + 1, map
+            next if colision_wall x_pos, y_pos + 1, map
             y_pos += 1
             break
         when "K"
-            next if colision x_pos, y_pos - 1, map
+            next if colision_wall x_pos, y_pos - 1, map
             y_pos -= 1
             break
         end
