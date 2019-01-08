@@ -1,9 +1,4 @@
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-x                           x
-x            H              x
-x                           x
-x                           x
-x                           x
-x     []                    x
-x                           x
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+----------
+|H x   x |
+|    x  o|
+----------
