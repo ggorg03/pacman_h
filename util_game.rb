@@ -22,6 +22,10 @@ def colision_wall (x_pos,y_pos,map)
     colision x_pos, y_pos, map, "x"
 end
 
+def colision_board (x_pos,y_pos,map)
+    colision x_pos, y_pos, map, "|" or colision x_pos, y_pos, map, "-"
+end
+
 def clean_position (x_pos, y_pos, map)
     map[y_pos][x_pos] = " "
 end
@@ -40,18 +44,22 @@ def move_hero (map, hero_position)
         case direction
         when "H"
             next if colision_wall x_pos -1, y_pos, map
+            next if colision_board x_pos -1, y_pos, map
             x_pos -= 1
             break
         when "L"
             next if colision_wall x_pos + 1, y_pos, map
+            next if colision_board x_pos + 1, y_pos, map
             x_pos += 1
             break
         when "J"
             next if colision_wall x_pos, y_pos + 1, map
+            next if colision_board x_pos, y_pos + 1, map
             y_pos += 1
             break
         when "K"
             next if colision_wall x_pos, y_pos - 1, map
+            next if colision_board x_pos, y_pos - 1, map
             y_pos -= 1
             break
         end
