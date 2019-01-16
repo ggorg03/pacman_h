@@ -6,14 +6,23 @@ def load_map
     map
 end
 
-def found_hero map
-    map.each_with_index do |linha, n_linha|
-        n_coluna = linha.index("H")
-        if n_coluna
-            return n_coluna, n_linha
+def found_character (map, character)
+    map.each_with_index do |line, nline|
+        ncol = line.index(character)
+        if ncol
+            return ncol, nline
         end
-    end
+    end    
 end
+
+def found_hero (map)
+    found_character map, "H"
+end
+
+def found_enemy (map)
+    found_character map, "E"
+end
+
 def colision (x_pos, y_pos, map, thing)
    map[y_pos][x_pos] == thing
 end
@@ -65,4 +74,8 @@ def move_hero (map, hero_position)
         end
     end
     draw_hero x_pos, y_pos, map
+end
+
+def move_enemy (map)
+    enemy_pos = found_enemy map 
 end

@@ -7,5 +7,6 @@ def game
         h_position = found_hero map
         puts map
         move_hero map, h_position
+        move_enemy map
     end
 end
